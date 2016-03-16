@@ -35,7 +35,7 @@ namespace App.Controllers
         [Route("{customerId}/orders")]
         [HttpGet]
         [ResponseType(typeof(List<Order>))]
-        public async Task<IHttpActionResult> GetOrders(int id)
+        public async Task<IHttpActionResult> GetOrders(int customerId)
         {
             return ResultAction(await Repository.GetOrders(id));
         }
