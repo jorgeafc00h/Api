@@ -25,7 +25,7 @@ namespace App.Controllers
         }
         [HttpGet]
         [ResponseType(typeof( Customer))]
-       
+        [Route("{id}")]
         public async Task<IHttpActionResult> Get(int id)
         {
             return ResultAction(await Repository.FindByIdAsync(id));
