@@ -37,7 +37,7 @@ namespace App.Controllers
         [ResponseType(typeof(List<Order>))]
         public async Task<IHttpActionResult> GetOrders(int customerId)
         {
-            return ResultAction(await Repository.GetOrders(id));
+            return ResultAction(await Repository.GetOrders(customerId));
         }
     }
 }
