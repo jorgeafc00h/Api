@@ -30,9 +30,7 @@ namespace App.Controllers
         {
             return ResultAction(await Repository.FindByIdAsync(id));
         }
-
-
-
+               
 
         [Route("{customerId}/orders")]
         [HttpGet]
