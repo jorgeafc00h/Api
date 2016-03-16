@@ -9,25 +9,25 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-
+using Context;
 
 namespace App.Controllers
 {
-    public class BaseApiController<TRepository, TContext, TEntity> : ApiController //new()
-       where TContext : DbContext
+    public class BaseApiController<TRepository, TEntity> : ApiController //new()
+       
        where TEntity : BaseModel
-       where TRepository : BaseRepository<TContext, TEntity>, new()
+       where TRepository : BaseRepository<ApplicationContext, TEntity>, new()
     {
 
 
 
 
-        protected TContext Context
+        protected ApplicationContext Context
         {
             get
             {
-
-                return Request.GetOwinContext().Get<TContext>();
+                // Create default for unit Testing
+                return Request!=null? Request.GetOwinContext().Get<ApplicationContext>() :ApplicationContext.Create() ;
             }
         }
 

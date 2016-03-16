@@ -13,7 +13,7 @@ using System.Web.Http.Description;
 namespace App.Controllers
 {
     [RoutePrefix("Api/Customers")]
-    public class ApiCustomerController : BaseApiController<CustomerRepository, ApplicationContext, Customer>
+    public class ApiCustomerController : BaseApiController<CustomerRepository, Customer>
     {
 
         [HttpGet]
